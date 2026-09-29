@@ -1,0 +1,487 @@
+/* ============================================================
+   BISHNOI FOOD ADDA — Responsive Stylesheet
+   Breakpoints: 320, 360, 375, 390, 414, 768, 1024, 1280, 1440, 1920
+   ============================================================ */
+
+/* ============================================================
+   LARGE DESKTOP (1440px+)
+   ============================================================ */
+@media (min-width: 1440px) {
+  :root { --container-max: 1360px; }
+}
+
+/* ============================================================
+   DESKTOP (1280px and below)
+   ============================================================ */
+@media (max-width: 1280px) {
+  .brand-story__accent-box { right: 0; }
+  .footer-grid { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: var(--space-8); }
+}
+
+/* ============================================================
+   TABLET LANDSCAPE (1024px and below)
+   ============================================================ */
+@media (max-width: 1024px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .menu-trigger { display: flex; }
+
+  /* Hero */
+  .hero__overlay {
+    background: linear-gradient(to bottom, rgba(10,9,7,0.70) 0%, rgba(10,9,7,0.50) 100%);
+  }
+
+  /* Brand Story */
+  .brand-story__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .brand-story__visual {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .brand-story__accent-box { right: 0; }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+
+  /* Checkout */
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+  .order-summary {
+    position: static;
+    order: -1;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================================
+   TABLET PORTRAIT (768px and below)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Base */
+  .section { padding: var(--space-16) 0; }
+  .container { padding: 0 var(--space-4); }
+
+  /* Navbar */
+  .site-header { padding: 0 var(--space-4); height: 60px; }
+  :root { --navbar-height: 60px; }
+
+  .header-brand__name { font-size: var(--text-xl); }
+
+  /* Cart btn - show only icon on small screens */
+  .cart-btn .cart-amount { display: none; }
+
+  /* Hero */
+  .hero__content { padding: calc(var(--navbar-height) + var(--space-16)) var(--space-4) var(--space-16); }
+  .hero__title { font-size: clamp(var(--text-4xl), 10vw, var(--text-6xl)); max-width: 100%; }
+  .hero__cta { gap: var(--space-3); }
+
+  /* Stats bar */
+  .stats-bar__inner { gap: var(--space-2); padding: var(--space-4); }
+  .stat-item { padding: var(--space-2); }
+  .stat-item__value { font-size: var(--text-3xl); }
+
+  /* Sections */
+  .section-title { font-size: clamp(var(--text-3xl), 7vw, var(--text-5xl)); }
+  .section-header { margin-bottom: var(--space-8); }
+
+  /* Category Slider */
+  .cat-slider { padding: var(--space-2) var(--space-4) var(--space-6); gap: var(--space-2); }
+  .cat-chip { padding: var(--space-2) var(--space-4); font-size: var(--text-xs); }
+
+  /* Menu Grid */
+  .menu-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-4); }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item--tall { grid-row: span 1; }
+  .gallery-item--wide { grid-column: span 1; }
+  .gallery-item img { min-height: 160px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .footer-grid > *:first-child { grid-column: 1 / -1; }
+
+  /* Footer bottom */
+  .footer-bottom { flex-direction: column; gap: var(--space-3); text-align: center; }
+  .footer-bottom__links { justify-content: center; }
+
+  /* Cart Drawer */
+  .cart-drawer { width: 100vw; }
+
+  /* Checkout form */
+  .form-row { grid-template-columns: 1fr; }
+  .checkout-block { padding: var(--space-5); }
+
+  /* Page header */
+  .page-header { padding: calc(var(--navbar-height) + var(--space-12)) var(--space-4) var(--space-10); }
+
+  /* Toast */
+  .toast-container { bottom: var(--space-20); right: var(--space-3); left: var(--space-3); }
+  .toast { max-width: 100%; min-width: unset; }
+
+  /* CTA section */
+  .cta-section { padding: var(--space-16) var(--space-4); }
+  .cta-section__btns { flex-direction: column; align-items: center; }
+
+  /* Contact actions */
+  .contact-actions { grid-template-columns: 1fr; }
+
+  /* Values */
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Why grid */
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   MOBILE LARGE (480px and below)
+   ============================================================ */
+@media (max-width: 480px) {
+  /* Nav overlay */
+  .nav-overlay { padding: var(--space-6); }
+  .nav-overlay__links a { font-size: var(--text-3xl); }
+
+  /* Hero */
+  .hero__eyebrow { font-size: 0.65rem; }
+  .hero__title { font-size: clamp(var(--text-4xl), 11vw, var(--text-5xl)); }
+  .hero__tagline { font-size: var(--text-lg); }
+  .hero__cta .btn--lg { padding: var(--space-3) var(--space-8); font-size: var(--text-sm); }
+  .hero__scroll { display: none; }
+
+  /* Stats */
+  .stats-bar__inner { justify-content: space-between; }
+
+  /* Menu Grid */
+  .menu-grid { grid-template-columns: 1fr; }
+
+  /* Food card */
+  .food-card { flex-direction: row; border-radius: var(--radius-lg); }
+  .food-card__img-wrapper { flex: 0 0 120px; aspect-ratio: unset; height: 120px; border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+  .food-card__body { padding: var(--space-3); gap: var(--space-1); }
+  .food-card__name { font-size: var(--text-lg); }
+  .food-card__desc { -webkit-line-clamp: 1; }
+  .food-card__footer { padding-top: var(--space-2); }
+  .food-card__badges { flex-direction: row; }
+
+  /* Gallery */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Offers grid */
+  .offers-grid { grid-template-columns: 1fr; }
+
+  /* Brand story */
+  .brand-story__quote { font-size: var(--text-2xl); }
+
+  /* Why / values */
+  .why-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; }
+
+  /* Reviews */
+  .review-card { padding: var(--space-5); }
+
+  /* Success card */
+  .success-card { padding: var(--space-8) var(--space-5); }
+}
+
+/* ============================================================
+   MOBILE SMALL (360px and below)
+   ============================================================ */
+@media (max-width: 360px) {
+  :root { --space-4: 0.875rem; --space-6: 1.25rem; }
+  .container { padding: 0 var(--space-3); }
+  .site-header { padding: 0 var(--space-3); }
+  .cat-chip { padding: var(--space-2) var(--space-3); }
+  .btn--lg { padding: var(--space-3) var(--space-6); }
+}
+
+/* ============================================================
+   MOBILE CART BAR VISIBILITY
+   Show only on mobile, when cart has items
+   ============================================================ */
+@media (min-width: 769px) {
+  .mobile-cart-bar { display: none !important; }
+}
+
+/* ============================================================
+   MENU SEARCH + FILTER ROW
+   ============================================================ */
+.menu-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .menu-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .search-bar { max-width: 100%; }
+}
+
+/* ============================================================
+   DISH SLIDER RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .dish-slide { flex: 0 0 min(280px, 80vw); }
+  .dish-slide__img { aspect-ratio: 3/4; }
+}
+
+/* ============================================================
+   OFFERS PAGE HERO
+   ============================================================ */
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .team-card__photo { width: 90px; height: 90px; font-size: 2rem; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .site-header, .nav-overlay, .cart-drawer, .cart-overlay,
+  .mobile-cart-bar, .toast-container, .announcement-bar { display: none !important; }
+  body { background: white; color: black; }
+}
+
+/* ============================================================
+   HORIZONTAL OVERFLOW GUARD (Global Safety)
+   ============================================================ */
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   CART PAGE SPECIFIC
+   ============================================================ */
+.cart-page-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-10);
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .cart-page-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-page-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cart-page-item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.cart-page-item__img {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--color-surface-2);
+}
+
+.cart-page-item__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-page-item__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.cart-page-item__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.cart-page-item__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.cart-page-item__price {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .cart-page-item { flex-direction: column; }
+  .cart-page-item__img { width: 100%; height: 160px; border-radius: var(--radius-lg); }
+}
+
+/* ============================================================
+   COUPON CODE INPUT
+   ============================================================ */
+.coupon-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.coupon-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.coupon-input::placeholder { color: var(--color-text-muted); text-transform: none; letter-spacing: 0; }
+.coupon-input:focus { border-color: var(--color-accent); }
+
+/* ============================================================
+   SECTION DECORATIVE LINES
+   ============================================================ */
+.section-deco {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.section-deco__line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.section-deco__icon {
+  color: var(--color-accent);
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   MENU FILTER COUNT
+   ============================================================ */
+.menu-result-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.menu-result-count span {
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   KEYBOARD NAVIGATION FOCUS RING OVERRIDE
+   (Ensure all interactive elements have visible focus states)
+   ============================================================ */
+.cat-chip:focus-visible,
+.food-card:focus-within,
+.add-btn:focus-visible,
+.qty-btn:focus-visible,
+.cart-btn:focus-visible,
+.btn:focus-visible,
+.location-btn:focus-visible,
+.slider-arrow:focus-visible,
+.footer-social-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   OFFERS TAB / SECTION HEADERS
+   ============================================================ */
+.tab-header {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-8);
+}
+
+.tab-header::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex: 0 0 auto;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  font-family: var(--font-primary);
+}
+
+.tab-btn:hover { background: var(--color-surface-2); color: var(--color-text-primary); border-color: var(--color-border-accent); }
+.tab-btn.active { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg-primary); font-weight: 700; }
+
+/* ============================================================
+   LOCATION SECTION VISIBILITY HELPERS
+   ============================================================ */
+.location-manual { transition: opacity var(--transition-base), max-height var(--transition-slow); max-height: 200px; overflow: hidden; }
+.location-manual.hidden { max-height: 0; opacity: 0; pointer-events: none; overflow: hidden; }
+.location-success { display: none; }
+.location-success.visible { display: flex; }
+.location-error { display: none; }
+.location-error.visible { display: flex; }
+.location-btn-wrapper { transition: opacity var(--transition-base); }
+.location-btn-wrapper.hidden { display: none; }

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bishnoi Food Adda — Desi Flavours, Freshly Made</title>
+  <meta name="description" content="Bishnoi Food Adda — Authentic desi flavours freshly made in Suratgarh. Order online via WhatsApp. Paneer, pizza, burgers, biryani & more. Fast delivery.">
+  <meta name="theme-color" content="#0a0907">
+  <meta property="og:title" content="Bishnoi Food Adda — Desi Flavours, Freshly Made">
+  <meta property="og:description" content="Premium desi restaurant in Suratgarh. Order online — WhatsApp delivery.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ============================================================
+     ANNOUNCEMENT BAR
+     ============================================================ -->
+<div id="announcement-bar" class="announcement-bar" role="banner" aria-label="Site announcement">
+  🔥 Free Delivery on orders above ₹400 &nbsp;|&nbsp; Use WhatsApp to order instantly!
+  <button class="announcement-bar__close" aria-label="Close announcement">×</button>
+</div>
+
+<!-- ============================================================
+     HEADER / NAVBAR
+     ============================================================ -->
+<header id="site-header" class="site-header" role="banner">
+  <div class="header-left">
+    <button class="menu-trigger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="header-brand" aria-label="Bishnoi Food Adda — Home">
+      <div class="header-brand__text">
+        <span class="header-brand__name">Bishnoi</span>
+        <span class="header-brand__sub">Food Adda</span>
+      </div>
+    </a>
+  </div>
+
+  <nav class="nav-links" aria-label="Primary navigation">
+    <a href="index.html"    data-nav-href="index.html"   aria-current="page">Home</a>
+    <a href="menu.html"     data-nav-href="menu.html">Menu</a>
+    <a href="offers.html"   data-nav-href="offers.html">Offers</a>
+    <a href="about.html"    data-nav-href="about.html">About</a>
+    <a href="contact.html"  data-nav-href="contact.html">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <button class="cart-btn js-open-cart" id="nav-cart-btn" aria-label="Open cart" aria-haspopup="dialog">
+      <svg class="cart-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" data-count="0" aria-label="Items in cart">0</span>
+      <span class="cart-amount" aria-live="polite"></span>
+    </button>
+    <a href="menu.html" class="btn btn--gold btn--sm">Order Now</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     NAV OVERLAY
+     ============================================================ -->
+<nav id="nav-overlay" class="nav-overlay" aria-label="Primary navigation" role="dialog" aria-modal="true" hidden>
+  <div class="nav-overlay__header">
+    <span class="header-brand__name" style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-accent)">Bishnoi Food Adda</span>
+    <button class="nav-overlay__close" aria-label="Close navigation menu">
+      ✕ &nbsp; Close
+    </button>
+  </div>
+  <div class="nav-overlay__links">
+    <a href="index.html"   data-nav-href="index.html"><span class="nav-num">00</span>Home</a>
+    <a href="menu.html"    data-nav-href="menu.html"><span class="nav-num">01</span>Menu</a>
+    <a href="offers.html"  data-nav-href="offers.html"><span class="nav-num">02</span>Offers</a>
+    <a href="about.html"   data-nav-href="about.html"><span class="nav-num">03</span>About Us</a>
+    <a href="contact.html" data-nav-href="contact.html"><span class="nav-num">04</span>Contact</a>
+    <a href="cart.html"    data-nav-href="cart.html"><span class="nav-num">05</span>Cart</a>
+  </div>
+  <div class="nav-overlay__footer">
+    <a href="menu.html" class="btn btn--gold">Order Now →</a>
+    <a href="contact.html" class="btn btn--ghost">Get Directions</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     CART DRAWER
+     ============================================================ -->
+<div id="cart-overlay" class="cart-overlay" aria-hidden="true"></div>
+<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your cart" hidden>
+  <div class="cart-drawer__header">
+    <h2 class="cart-drawer__title">Your Cart</h2>
+    <button id="cart-drawer-close" class="cart-drawer__close" aria-label="Close cart">×</button>
+  </div>
+  <div id="cart-drawer-body" class="cart-drawer__body"></div>
+  <div id="cart-drawer-footer" class="cart-drawer__footer hidden"></div>
+</aside>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<main id="main-content">
+<section class="hero" aria-label="Hero">
+  <div class="hero__bg">
+    <img class="hero__img" 
+         src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=90" 
+         alt="Premium Indian food spread — rich curries, naan and vibrant spices" 
+         fetchpriority="high" loading="eager">
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__overlay-bottom" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow">Suratgarh's Finest Desi Kitchen</p>
+    <h1 class="hero__title">
+      Bishnoi
+      <strong>Food Adda</strong>
+    </h1>
+    <p class="hero__tagline">Desi flavours. Freshly made. Made to crave.</p>
+    <div class="hero__cta">
+      <a href="menu.html" class="btn btn--gold btn--lg">Order Now →</a>
+      <a href="#menu-preview" class="btn btn--ghost btn--lg">Explore Menu</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<div class="stats-bar">
+  <div class="stats-bar__inner container">
+    <div class="stat-item reveal">
+      <div class="stat-item__value">5000+</div>
+      <div class="stat-item__label">Happy Customers</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-item__value">50+</div>
+      <div class="stat-item__label">Menu Items</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-item__value">4.8★</div>
+      <div class="stat-item__label">Average Rating</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-item__value">30 min</div>
+      <div class="stat-item__label">Avg Delivery</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MENU CATEGORY PREVIEW (Homepage)
+     ============================================================ -->
+<section class="cat-slider-section" id="menu-preview" aria-label="Browse food categories">
+  <p class="cat-slider-label">Browse By Category</p>
+  <div class="cat-slider-wrapper">
+    <div id="cat-slider-home" class="cat-slider" role="radiogroup" aria-label="Food categories">
+      <!-- rendered by JS / static fallback -->
+      <a href="menu.html?cat=all"       class="cat-chip active"><span class="cat-chip__emoji">🍽️</span>All</a>
+      <a href="menu.html?cat=Starters"  class="cat-chip"><span class="cat-chip__emoji">🥗</span>Starters</a>
+      <a href="menu.html?cat=Pizza"     class="cat-chip"><span class="cat-chip__emoji">🍕</span>Pizza</a>
+      <a href="menu.html?cat=Burgers"   class="cat-chip"><span class="cat-chip__emoji">🍔</span>Burgers</a>
+      <a href="menu.html?cat=Chinese"   class="cat-chip"><span class="cat-chip__emoji">🥢</span>Chinese</a>
+      <a href="menu.html?cat=Indian"    class="cat-chip"><span class="cat-chip__emoji">🍛</span>Indian</a>
+      <a href="menu.html?cat=Combos"    class="cat-chip"><span class="cat-chip__emoji">🎁</span>Combos</a>
+      <a href="menu.html?cat=Beverages" class="cat-chip"><span class="cat-chip__emoji">🥤</span>Beverages</a>
+      <a href="menu.html?cat=Desserts"  class="cat-chip"><span class="cat-chip__emoji">🍮</span>Desserts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIGNATURE DISHES SLIDER
+     ============================================================ -->
+<section class="section slider-section" aria-label="Signature dishes">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Signature Dishes</span>
+      <div class="divider"></div>
+      <h2 class="section-title">Made to <em>Crave</em></h2>
+      <p class="section-subtitle">Our most-loved dishes — crafted with fresh ingredients and bold desi spices every single day.</p>
+    </div>
+  </div>
+
+  <div id="dish-slider" class="dish-slider" role="region" aria-label="Signature dishes slider">
+    <!-- Rendered by menu.js -->
+    <div class="dish-slide" style="background:var(--color-surface);width:300px;aspect-ratio:3/4;border-radius:var(--radius-2xl);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);flex-shrink:0">Loading…</div>
+  </div>
+
+  <div class="slider-arrows container">
+    <button id="dish-slider-prev" class="slider-arrow" aria-label="Previous dishes">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button id="dish-slider-next" class="slider-arrow" aria-label="Next dishes">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRAND STORY
+     ============================================================ -->
+<section class="section brand-story" aria-label="Our story">
+  <div class="container">
+    <div class="brand-story__grid">
+      <div class="brand-story__visual reveal">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&q=85"
+             alt="Chef preparing fresh desi food in the kitchen at Bishnoi Food Adda" loading="lazy">
+        <div class="brand-story__accent-box">
+          <div class="value">10+</div>
+          <div class="label">Years of Flavour</div>
+        </div>
+      </div>
+      <div class="brand-story__text reveal reveal-delay-2">
+        <span class="section-label">Our Story</span>
+        <div class="divider"></div>
+        <blockquote class="brand-story__quote">
+          "Good food is not just a meal — it's a memory."
+        </blockquote>
+        <p class="brand-story__body">
+          Born in the heart of Suratgarh, Bishnoi Food Adda started as a small family kitchen with one mission — 
+          to bring the warmth of home-cooked desi food to every plate. 
+          Today, we serve over 5,000 happy customers with the same passion, the same fresh ingredients, and the same love.
+        </p>
+        <p class="brand-story__body">
+          Every dish on our menu tells a story — of local flavours, 
+          traditional recipes passed down through generations, and the pure joy of eating something truly good.
+          No shortcuts. No compromises. Just honest food, freshly made.
+        </p>
+        <a href="about.html" class="btn btn--ghost">Read Our Full Story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     POPULAR DISHES (Grid)
+     ============================================================ -->
+<section class="section" aria-label="Popular dishes" id="popular-section">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Bestsellers</span>
+      <div class="divider"></div>
+      <h2 class="section-title">Most <em>Popular</em></h2>
+      <p class="section-subtitle">Our customers can't stop ordering these. Try them and you'll know why.</p>
+    </div>
+    <div id="popular-grid" class="menu-grid">
+      <!-- Rendered by menu.js -->
+    </div>
+    <div style="text-align:center;margin-top:var(--space-10)">
+      <a href="menu.html" class="btn btn--gold btn--lg">View Full Menu →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TODAY'S OFFERS (Preview)
+     ============================================================ -->
+<section class="section" style="background:var(--color-bg-secondary)" aria-label="Today's offers">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Deals &amp; Offers</span>
+      <div class="divider"></div>
+      <h2 class="section-title">Today's <em>Specials</em></h2>
+    </div>
+    <div class="offers-grid">
+      <article class="offer-card reveal">
+        <span class="offer-card__ribbon">Save ₹150</span>
+        <div class="offer-card__img-wrapper">
+          <img class="offer-card__img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Family Feast Combo" loading="lazy">
+        </div>
+        <div class="offer-card__body">
+          <h3 class="offer-card__name">Family Feast Combo</h3>
+          <p class="offer-card__desc">Dal Makhani + Paneer Butter Masala + 4 Butter Naan + Rice + Gulab Jamun. Perfect for family meals!</p>
+          <div class="offer-card__price-row">
+            <span class="offer-card__price">₹549</span>
+            <span class="offer-card__price-old">₹699</span>
+            <span class="offer-card__savings">Save ₹150</span>
+          </div>
+          <button class="btn btn--gold" onclick="cartAddItem(window.menuItems?.find(m=>m.id==='bfa050'))">Add to Cart</button>
+        </div>
+      </article>
+      <article class="offer-card reveal reveal-delay-1">
+        <span class="offer-card__ribbon">Save ₹90</span>
+        <div class="offer-card__img-wrapper">
+          <img class="offer-card__img" src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80" alt="Chicken Lover Combo" loading="lazy">
+        </div>
+        <div class="offer-card__body">
+          <h3 class="offer-card__name">Chicken Lover Combo</h3>
+          <p class="offer-card__desc">Chicken Tikka + Chicken Rara + 2 Butter Naan + Rice + Raita. A hearty non-veg feast.</p>
+          <div class="offer-card__price-row">
+            <span class="offer-card__price">₹399</span>
+            <span class="offer-card__price-old">₹489</span>
+            <span class="offer-card__savings">Save ₹90</span>
+          </div>
+          <button class="btn btn--gold" onclick="cartAddItem(window.menuItems?.find(m=>m.id==='bfa051'))">Add to Cart</button>
+        </div>
+      </article>
+      <article class="offer-card reveal reveal-delay-2">
+        <span class="offer-card__ribbon">Best Value</span>
+        <div class="offer-card__img-wrapper">
+          <img class="offer-card__img" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Snack Platter Combo" loading="lazy">
+        </div>
+        <div class="offer-card__body">
+          <h3 class="offer-card__name">Snack Platter Combo</h3>
+          <p class="offer-card__desc">Samosa ×2 + Aloo Tikki ×2 + Dahi Bhalle + 2 Cold Drinks. Perfect for an evening snack.</p>
+          <div class="offer-card__price-row">
+            <span class="offer-card__price">₹279</span>
+            <span class="offer-card__price-old">₹349</span>
+            <span class="offer-card__savings">Save ₹70</span>
+          </div>
+          <button class="btn btn--gold" onclick="cartAddItem(window.menuItems?.find(m=>m.id==='bfa052'))">Add to Cart</button>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:var(--space-8)">
+      <a href="offers.html" class="btn btn--ghost">See All Offers →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY BISHNOI FOOD ADDA
+     ============================================================ -->
+<section class="section" aria-label="Why choose us">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Why Us</span>
+      <div class="divider"></div>
+      <h2 class="section-title">The Bishnoi <em>Promise</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card__icon">🌿</div>
+        <h3 class="why-card__title">Fresh Every Day</h3>
+        <p class="why-card__desc">We cook fresh every morning — no frozen food, no shortcuts. What you taste is what was made today.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-card__icon">🌶️</div>
+        <h3 class="why-card__title">Authentic Spices</h3>
+        <p class="why-card__desc">Our masalas are ground in-house from whole spices. Real desi taste that no ready-made mix can replicate.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card__icon">🛵</div>
+        <h3 class="why-card__title">Fast Delivery</h3>
+        <p class="why-card__desc">Hot food at your door in under 30 minutes. We treat your hunger urgently — because it is urgent.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-card__icon">💬</div>
+        <h3 class="why-card__title">WhatsApp Ordering</h3>
+        <p class="why-card__desc">No apps to install. Just order via WhatsApp and we'll confirm within minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
+<section class="section" style="background:var(--color-bg-secondary)" aria-label="Food gallery">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Gallery</span>
+      <div class="divider"></div>
+      <h2 class="section-title">Food Worth <em>Photographing</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item--tall">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Plated Indian food" loading="lazy">
+        <div class="gallery-overlay"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80" alt="Desi curry dish" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=600&q=80" alt="Dal makhani" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item gallery-item--wide">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" alt="Pizza fresh from oven" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80" alt="Chaat platter" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Burger" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600&q=80" alt="Paneer butter masala" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&q=80" alt="Gulab jamun dessert" loading="lazy">
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section class="section slider-section" aria-label="Customer reviews">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Reviews</span>
+      <div class="divider"></div>
+      <h2 class="section-title">What Our Customers <em>Say</em></h2>
+    </div>
+  </div>
+  <div id="reviews-slider" class="reviews-slider" role="region" aria-label="Customer reviews slider">
+    <div class="review-card">
+      <div class="review-stars" aria-label="5 stars">★★★★★</div>
+      <blockquote class="review-text">"Dal Makhani here is just like my naani used to make. Rich, creamy, and genuinely slow-cooked. I drive 10 km just for this."</blockquote>
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">R</div>
+        <div>
+          <div class="review-author__name">Ravi Sharma</div>
+          <div class="review-author__location">📍 Suratgarh</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" aria-label="5 stars">★★★★★</div>
+      <blockquote class="review-text">"Best paneer tikka pizza in the area — hands down. The tandoori base is absolutely unique. Fast delivery too!"</blockquote>
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">P</div>
+        <div>
+          <div class="review-author__name">Priya Jangid</div>
+          <div class="review-author__location">📍 Suratgarh</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" aria-label="5 stars">★★★★★</div>
+      <blockquote class="review-text">"The Family Feast Combo is incredible value. Enough for 4 people, everything was hot and delicious. Will order again next weekend!"</blockquote>
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">A</div>
+        <div>
+          <div class="review-author__name">Arjun Bishnoi</div>
+          <div class="review-author__location">📍 Sri Ganganagar</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" aria-label="5 stars">★★★★★</div>
+      <blockquote class="review-text">"WhatsApp ordering is so convenient. I sent my order, got confirmation in 2 minutes, and food arrived in 25 minutes. Amazing service!"</blockquote>
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">M</div>
+        <div>
+          <div class="review-author__name">Meera Devi</div>
+          <div class="review-author__location">📍 Suratgarh</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars" aria-label="4 stars">★★★★☆</div>
+      <blockquote class="review-text">"Chicken Rara is my go-to comfort food now. The spice blend is perfect — not too hot, but full of flavour. Always consistent quality."</blockquote>
+      <div class="review-author">
+        <div class="review-avatar" aria-hidden="true">S</div>
+        <div>
+          <div class="review-author__name">Sanjay Choudhary</div>
+          <div class="review-author__location">📍 Hanumangarh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-arrows container">
+    <button id="reviews-prev" class="slider-arrow" aria-label="Previous reviews">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button id="reviews-next" class="slider-arrow" aria-label="Next reviews">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============================================================
+     LOCATION / CONTACT PREVIEW
+     ============================================================ -->
+<section class="section" aria-label="Location and contact">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="section-label">Find Us</span>
+      <div class="divider"></div>
+      <h2 class="section-title">Visit <em>Our Adda</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-block">
+        <div class="contact-detail reveal">
+          <div class="contact-detail__icon">📍</div>
+          <div>
+            <div class="contact-detail__label">Address</div>
+            <div class="contact-detail__value">Near Main Chowk, Suratgarh, Rajasthan — 335804</div>
+          </div>
+        </div>
+        <div class="contact-detail reveal reveal-delay-1">
+          <div class="contact-detail__icon">📞</div>
+          <div>
+            <div class="contact-detail__label">Phone / WhatsApp</div>
+            <div class="contact-detail__value">
+              <a href="tel:+917000000000">+91 70000 00000</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-detail reveal reveal-delay-2">
+          <div class="contact-detail__icon">🕐</div>
+          <div>
+            <div class="contact-detail__label">Open Hours</div>
+            <div class="contact-detail__value">Mon–Fri: 10 AM – 10:30 PM<br>Sat–Sun: 9 AM – 11 PM</div>
+          </div>
+        </div>
+        <div class="contact-actions reveal reveal-delay-3">
+          <a href="tel:+917000000000" class="btn btn--dark">📞 Call Now</a>
+          <a href="https://wa.me/917000000000" class="btn btn--gold" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a href="https://maps.google.com/?q=Bishnoi+Food+Adda+Suratgarh" class="btn btn--ghost" target="_blank" rel="noopener">📍 Get Directions</a>
+          <a href="menu.html" class="btn btn--dark">🍽️ Order Now</a>
+        </div>
+      </div>
+      <div class="map-wrapper reveal reveal-delay-1">
+        <div style="font-size:3rem">📍</div>
+        <div>
+          <strong style="color:var(--color-text-primary)">Bishnoi Food Adda</strong><br>
+          Near Main Chowk, Suratgarh
+        </div>
+        <a href="https://maps.google.com/?q=Bishnoi+Food+Adda+Suratgarh" class="btn btn--gold btn--sm" target="_blank" rel="noopener">Open in Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="cta-section" aria-label="Call to action">
+  <div class="container">
+    <h2 class="cta-section__title">Hungry? Let's Fix <em>That</em>.</h2>
+    <p class="cta-section__sub">Order in 60 seconds. Delivered hot to your door.</p>
+    <div class="cta-section__btns">
+      <a href="menu.html" class="btn btn--gold btn--lg">Browse Full Menu →</a>
+      <a href="https://wa.me/917000000000" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand__name">Bishnoi Food Adda</div>
+        <div class="footer-brand__tagline">Desi Flavours. Freshly Made.</div>
+        <p class="footer-brand__desc">A local kitchen born in Suratgarh with a big heart for honest, fresh desi food. Every bite tells a story.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/bishnoifoodadda" class="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener">📸</a>
+          <a href="https://wa.me/917000000000" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+          <a href="tel:+917000000000" class="footer-social-link" aria-label="Call us">📞</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col__title">Navigate</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="offers.html">Offers</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col__title">Popular Items</div>
+        <div class="footer-links">
+          <a href="menu.html">Dal Makhani</a>
+          <a href="menu.html">Paneer Butter Masala</a>
+          <a href="menu.html">Chicken Rara</a>
+          <a href="menu.html">Aloo Tikki Burger</a>
+          <a href="menu.html">Mango Lassi</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col__title">Contact</div>
+        <div class="footer-contact-item">
+          <span>📍</span>
+          <span>Near Main Chowk, Suratgarh, Rajasthan 335804</span>
+        </div>
+        <div class="footer-contact-item">
+          <span>📞</span>
+          <a href="tel:+917000000000">+91 70000 00000</a>
+        </div>
+        <div class="footer-contact-item">
+          <span>🕐</span>
+          <span>10 AM – 10:30 PM (Mon–Fri)<br>9 AM – 11 PM (Weekends)</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-bottom__copy">© 2026 Bishnoi Food Adda. All rights reserved.</p>
+      <div class="footer-bottom__links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MOBILE CART BAR
+     ============================================================ -->
+<button id="mobile-cart-bar" class="mobile-cart-bar" aria-label="View cart">
+  <div class="mobile-cart-bar__info">
+    <span class="mobile-cart-bar__count">0</span>
+    <span>Items in cart</span>
+  </div>
+  <div>
+    <span class="mobile-cart-bar__total">₹0</span>
+  </div>
+  <div class="mobile-cart-bar__cta">
+    View Cart →
+  </div>
+</button>
+
+<script src="js/app.js" defer></script>
+<script src="js/menu.js" defer></script>
+<script>
+  // Init category slider on home
+  document.addEventListener('DOMContentLoaded', () => {
+    initCategorySlider(document.getElementById('cat-slider-home'));
+    initSliderWithArrows(
+      document.getElementById('reviews-slider'),
+      document.getElementById('reviews-prev'),
+      document.getElementById('reviews-next')
+    );
+  });
+</script>
+</body>
+</html>

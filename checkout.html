@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Bishnoi Food Adda | Place Your Order</title>
+  <meta name="description" content="Complete your order at Bishnoi Food Adda. Enter your details, use live location, and place order via WhatsApp.">
+  <meta name="theme-color" content="#0a0907">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div id="announcement-bar" class="announcement-bar">
+  ✅ Almost there! Complete your order below.
+  <button class="announcement-bar__close" aria-label="Close">×</button>
+</div>
+
+<!-- HEADER -->
+<header id="site-header" class="site-header">
+  <div class="header-left">
+    <button class="menu-trigger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="header-brand">
+      <div class="header-brand__text">
+        <span class="header-brand__name">Bishnoi</span>
+        <span class="header-brand__sub">Food Adda</span>
+      </div>
+    </a>
+  </div>
+  <nav class="nav-links" aria-label="Primary navigation">
+    <a href="index.html" data-nav-href="index.html">Home</a>
+    <a href="menu.html"  data-nav-href="menu.html">Menu</a>
+    <a href="offers.html" data-nav-href="offers.html">Offers</a>
+    <a href="about.html"  data-nav-href="about.html">About</a>
+    <a href="contact.html" data-nav-href="contact.html">Contact</a>
+  </nav>
+  <div class="header-right">
+    <button class="cart-btn js-open-cart" aria-label="Open cart" aria-haspopup="dialog">
+      <svg class="cart-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" data-count="0">0</span>
+      <span class="cart-amount" aria-live="polite"></span>
+    </button>
+  </div>
+</header>
+
+<!-- NAV OVERLAY -->
+<nav id="nav-overlay" class="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation" hidden>
+  <div class="nav-overlay__header">
+    <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-accent)">Bishnoi Food Adda</span>
+    <button class="nav-overlay__close" aria-label="Close menu">✕ Close</button>
+  </div>
+  <div class="nav-overlay__links">
+    <a href="index.html"   data-nav-href="index.html"><span class="nav-num">00</span>Home</a>
+    <a href="menu.html"    data-nav-href="menu.html"><span class="nav-num">01</span>Menu</a>
+    <a href="offers.html"  data-nav-href="offers.html"><span class="nav-num">02</span>Offers</a>
+    <a href="about.html"   data-nav-href="about.html"><span class="nav-num">03</span>About Us</a>
+    <a href="contact.html" data-nav-href="contact.html"><span class="nav-num">04</span>Contact</a>
+    <a href="cart.html"    data-nav-href="cart.html"><span class="nav-num">05</span>Cart</a>
+  </div>
+</nav>
+
+<!-- CART DRAWER -->
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your cart" hidden>
+  <div class="cart-drawer__header">
+    <h2 class="cart-drawer__title">Your Cart</h2>
+    <button id="cart-drawer-close" class="cart-drawer__close" aria-label="Close cart">×</button>
+  </div>
+  <div id="cart-drawer-body" class="cart-drawer__body"></div>
+  <div id="cart-drawer-footer" class="cart-drawer__footer hidden"></div>
+</aside>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__inner">
+    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="cart.html">Cart</a>
+      <span>›</span>
+      <span aria-current="page">Checkout</span>
+    </nav>
+    <h1 class="page-header__title">Complete Your <em style="font-style:italic;color:var(--color-accent)">Order</em></h1>
+    <p class="page-header__sub">Your order will be sent directly via WhatsApp — no account required.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<section class="section--sm">
+  <div class="container">
+    <div class="checkout-layout">
+
+      <!-- LEFT: FORM -->
+      <div class="checkout-form-section">
+        <form id="checkout-form" novalidate aria-label="Order checkout form">
+
+          <!-- BLOCK 1: CUSTOMER DETAILS -->
+          <div class="checkout-block">
+            <h2 class="checkout-block__title">
+              <span class="block-num" aria-hidden="true">1</span>
+              Your Details
+            </h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="customer-name">
+                  Full Name <span class="required" aria-label="required">*</span>
+                </label>
+                <input type="text" id="customer-name" class="form-input" 
+                       name="customer_name"
+                       placeholder="e.g., Ravi Sharma" 
+                       required
+                       autocomplete="name"
+                       aria-required="true"
+                       aria-describedby="name-error">
+                <span id="name-error" class="form-error hidden" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="customer-phone">
+                  Mobile Number <span class="required" aria-label="required">*</span>
+                </label>
+                <input type="tel" id="customer-phone" class="form-input" 
+                       name="customer_phone"
+                       placeholder="e.g., 98765 43210" 
+                       required
+                       autocomplete="tel"
+                       aria-required="true"
+                       aria-describedby="phone-error"
+                       inputmode="numeric">
+                <span id="phone-error" class="form-error hidden" role="alert"></span>
+              </div>
+              <div class="form-group form-group--full">
+                <label class="form-label" for="customer-email">Email Address <span style="color:var(--color-text-muted);font-weight:400">(optional)</span></label>
+                <input type="email" id="customer-email" class="form-input" 
+                       name="customer_email"
+                       placeholder="e.g., you@email.com" 
+                       autocomplete="email">
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 2: DELIVERY LOCATION -->
+          <div class="checkout-block">
+            <h2 class="checkout-block__title">
+              <span class="block-num" aria-hidden="true">2</span>
+              Delivery Location
+            </h2>
+
+            <!-- HTTPS Warning (shown only on insecure origins) -->
+            <div id="location-https-warning" class="location-error hidden" role="alert" style="margin-bottom:var(--space-4)">
+              <div class="location-error__title">⚠️ HTTPS Required</div>
+              <div id="location-https-warning-msg" class="location-error__msg"></div>
+            </div>
+
+            <div class="location-section" aria-label="Delivery location options">
+
+              <!-- Manual Address -->
+              <div id="location-manual-wrapper">
+                <div class="form-group">
+                  <label class="form-label" for="delivery-address">
+                    Delivery Address <span class="required" aria-label="required">*</span>
+                  </label>
+                  <textarea id="delivery-address" class="form-textarea" 
+                            name="delivery_address"
+                            placeholder="House/flat number, street name, area, city…" 
+                            rows="3"
+                            aria-required="true"
+                            aria-describedby="address-error"></textarea>
+                  <span id="address-error" class="form-error hidden" role="alert"></span>
+                </div>
+                <div class="form-group" style="margin-top:var(--space-3)">
+                  <label class="form-label" for="delivery-landmark">Landmark <span style="color:var(--color-text-muted);font-weight:400">(optional)</span></label>
+                  <input type="text" id="delivery-landmark" class="form-input" 
+                         name="delivery_landmark"
+                         placeholder="e.g., Near SBI Bank, Opp. Petrol Pump"
+                         autocomplete="address-level3">
+                </div>
+              </div>
+
+              <!-- OR Divider -->
+              <div id="location-or" class="location-or" aria-hidden="true">OR</div>
+
+              <!-- Live Location Button -->
+              <div id="location-btn-wrapper" class="location-btn-wrapper">
+                <button type="button" id="use-live-location-btn" class="location-btn" aria-label="Use your current live location">
+                  <span class="location-btn__icon" aria-hidden="true">📍</span>
+                  Use My Live Location
+                </button>
+                <p style="font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;margin-top:var(--space-2)">
+                  Your browser will ask for permission. We only access location when you press this button.
+                </p>
+              </div>
+
+              <!-- SUCCESS STATE (hidden initially) -->
+              <div id="location-success" class="location-success" role="status" hidden>
+                <div class="location-success__header">
+                  <span class="location-success__icon" aria-hidden="true">✅</span>
+                  <div>
+                    <div class="location-success__title">Live Location Detected</div>
+                    <div class="location-success__sub">Your location is ready to be shared with the restaurant.</div>
+                  </div>
+                </div>
+                <div id="location-success-coords" class="location-success__coords" aria-live="polite"></div>
+                <a id="location-success-map-link" href="#" class="location-success__map-link" target="_blank" rel="noopener">View on Google Maps →</a>
+                <button type="button" id="location-change-btn" class="btn btn--ghost btn--sm" style="align-self:flex-start">
+                  🔄 Change Location
+                </button>
+              </div>
+
+              <!-- ERROR STATE (hidden initially) -->
+              <div id="location-error" class="location-error" role="alert" hidden>
+                <div class="location-error__title">
+                  <span aria-hidden="true">⚠️</span>
+                  Location Not Available
+                </div>
+                <div id="location-error-msg" class="location-error__msg"></div>
+                <button type="button" id="location-retry-btn" class="btn btn--ghost btn--sm">
+                  🔄 Try Again
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- BLOCK 3: ORDER NOTES -->
+          <div class="checkout-block">
+            <h2 class="checkout-block__title">
+              <span class="block-num" aria-hidden="true">3</span>
+              Order Notes
+            </h2>
+            <div class="form-group">
+              <label class="form-label" for="order-notes">
+                Special Instructions <span style="color:var(--color-text-muted);font-weight:400">(optional)</span>
+              </label>
+              <textarea id="order-notes" class="form-textarea" 
+                        name="order_notes"
+                        placeholder="e.g., Extra spicy please, no onion in one dish, ring the bell twice…"
+                        rows="3"></textarea>
+            </div>
+          </div>
+
+          <!-- SUBMIT BUTTON -->
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <button type="submit" id="place-order-btn" class="btn btn--gold btn--lg" style="width:100%;justify-content:center">
+              🟢 Place Order on WhatsApp
+            </button>
+            <p style="font-size:var(--text-xs);color:var(--color-text-muted);text-align:center;line-height:1.5">
+              Your order details will open in WhatsApp. Just press Send — and wait for our confirmation!
+            </p>
+            <a href="cart.html" class="btn btn--ghost" style="justify-content:center">← Back to Cart</a>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <aside aria-label="Order summary">
+        <div class="order-summary">
+          <div class="order-summary__header">
+            <h2 class="order-summary__title">Order Summary</h2>
+          </div>
+          <div id="order-summary-body" class="order-summary__body">
+            <!-- Rendered by checkout.js -->
+          </div>
+          <div id="order-summary-footer" class="order-summary__footer">
+            <!-- Rendered by checkout.js -->
+          </div>
+        </div>
+
+        <!-- Info box -->
+        <div class="checkout-block" style="margin-top:var(--space-4)">
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <div style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted)">
+              <span style="font-size:var(--text-xl)">💬</span>
+              <span>Orders confirmed via WhatsApp within 2–5 minutes</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted)">
+              <span style="font-size:var(--text-xl)">🛵</span>
+              <span>Delivery in ~25–35 minutes</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted)">
+              <span style="font-size:var(--text-xl)">💵</span>
+              <span>Pay cash on delivery</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);color:var(--color-text-muted)">
+              <span style="font-size:var(--text-xl)">🔒</span>
+              <span>Your data is never stored on our servers</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER (minimal) -->
+<footer class="site-footer" role="contentinfo" style="padding:var(--space-10) 0">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-bottom__copy">© 2026 Bishnoi Food Adda. Suratgarh, Rajasthan.</p>
+      <div class="footer-bottom__links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/menu.js" defer></script>
+<script src="js/location.js" defer></script>
+<script src="js/checkout.js" defer></script>
+</body>
+</html>

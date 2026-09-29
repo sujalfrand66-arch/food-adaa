@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — Bishnoi Food Adda</title>
+  <meta name="description" content="Review your cart items and proceed to checkout at Bishnoi Food Adda.">
+  <meta name="theme-color" content="#0a0907">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div id="announcement-bar" class="announcement-bar">
+  🛒 Review your cart and place your order via WhatsApp!
+  <button class="announcement-bar__close" aria-label="Close">×</button>
+</div>
+
+<header id="site-header" class="site-header">
+  <div class="header-left">
+    <button class="menu-trigger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="header-brand">
+      <div class="header-brand__text">
+        <span class="header-brand__name">Bishnoi</span>
+        <span class="header-brand__sub">Food Adda</span>
+      </div>
+    </a>
+  </div>
+  <nav class="nav-links" aria-label="Primary navigation">
+    <a href="index.html" data-nav-href="index.html">Home</a>
+    <a href="menu.html"  data-nav-href="menu.html">Menu</a>
+    <a href="offers.html" data-nav-href="offers.html">Offers</a>
+    <a href="about.html"  data-nav-href="about.html">About</a>
+    <a href="contact.html" data-nav-href="contact.html">Contact</a>
+  </nav>
+  <div class="header-right">
+    <button class="cart-btn js-open-cart" aria-label="Open cart" aria-haspopup="dialog">
+      <svg class="cart-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" data-count="0">0</span>
+      <span class="cart-amount"></span>
+    </button>
+  </div>
+</header>
+
+<nav id="nav-overlay" class="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation" hidden>
+  <div class="nav-overlay__header">
+    <span style="font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-accent)">Bishnoi Food Adda</span>
+    <button class="nav-overlay__close" aria-label="Close menu">✕ Close</button>
+  </div>
+  <div class="nav-overlay__links">
+    <a href="index.html"   data-nav-href="index.html"><span class="nav-num">00</span>Home</a>
+    <a href="menu.html"    data-nav-href="menu.html"><span class="nav-num">01</span>Menu</a>
+    <a href="offers.html"  data-nav-href="offers.html"><span class="nav-num">02</span>Offers</a>
+    <a href="about.html"   data-nav-href="about.html"><span class="nav-num">03</span>About Us</a>
+    <a href="contact.html" data-nav-href="contact.html"><span class="nav-num">04</span>Contact</a>
+    <a href="cart.html"    data-nav-href="cart.html"><span class="nav-num">05</span>Cart</a>
+  </div>
+</nav>
+
+<div id="cart-overlay" class="cart-overlay"></div>
+<aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your cart" hidden>
+  <div class="cart-drawer__header">
+    <h2 class="cart-drawer__title">Your Cart</h2>
+    <button id="cart-drawer-close" class="cart-drawer__close" aria-label="Close cart">×</button>
+  </div>
+  <div id="cart-drawer-body" class="cart-drawer__body"></div>
+  <div id="cart-drawer-footer" class="cart-drawer__footer hidden"></div>
+</aside>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header__inner">
+    <nav class="page-header__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span aria-current="page">Cart</span>
+    </nav>
+    <h1 class="page-header__title">Your <em style="font-style:italic;color:var(--color-accent)">Cart</em></h1>
+    <p class="page-header__sub">Review your items and proceed when you're ready.</p>
+  </div>
+</div>
+
+<main id="main-content">
+<section class="section--sm">
+  <div class="container">
+
+    <!-- EMPTY STATE -->
+    <div id="cart-page-empty" class="empty-state hidden">
+      <div class="empty-state__icon">🛒</div>
+      <h2 class="empty-state__title">Your cart is empty</h2>
+      <p class="empty-state__sub">You haven't added anything yet. Let's find something delicious!</p>
+      <a href="menu.html" class="btn btn--gold mt-4">Explore Menu →</a>
+    </div>
+
+    <!-- CART LAYOUT (shown when cart has items) -->
+    <div class="cart-page-layout">
+      <div id="cart-page-items" class="cart-page-items">
+        <!-- Rendered by checkout.js -->
+      </div>
+      <div id="cart-page-summary">
+        <!-- Rendered by checkout.js -->
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" style="padding:var(--space-10) 0">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-bottom__copy">© 2026 Bishnoi Food Adda. Suratgarh, Rajasthan.</p>
+      <div class="footer-bottom__links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/menu.js" defer></script>
+<script src="js/checkout.js" defer></script>
+</body>
+</html>
